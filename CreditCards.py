@@ -70,11 +70,11 @@ def get_chase_card_last_six():
                          "credit card between " + six_mnth_ago_format + " and today? Yes/No: ").lower()
         if last_six == 'yes':
             print("**Signed up for a new Chase personal "
-                  "credit card in the last six months - Response store as: Yes**")
+                  "credit card in the last six months - Response stored as: Yes**")
             return True
         elif last_six == 'no':
             print("**Signed up for a new Chase personal "
-                  "credit card in the last six months - Response store as: No**")
+                  "credit card in the last six months - Response stored as: No**")
             return False
         else:
             attempts_remaining = str(3 - attempts)
