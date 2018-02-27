@@ -1,4 +1,4 @@
-This program will prompt the user with a number of questions to determine eligibilty of credit card bonuses.
+This program will prompt the user with a number of questions to determine eligibility of credit card bonuses.
 
 Many of the 'big' credit card companies have implemented new rules/time-frames for receiving credit card bonuses more than one time.
 
