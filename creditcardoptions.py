@@ -19,7 +19,6 @@ THREE_MONTHS_AGO_FORMATTED = datetime.datetime.strptime(THREE_MONTHS_AGO, '%Y-%m
 TODAY = datetime.datetime.today().strftime("%m/%d/%Y")
 
 
-
 def get_valid_date_format(last_date):
     return bool(DATE_AS_REG_EXP.search(last_date))
 
