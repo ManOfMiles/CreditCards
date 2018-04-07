@@ -30,13 +30,15 @@ def get_valid_credit_score(credit_score):
 def get_valid_credit_cards(num):
     return bool(NUMBER_OF_CREDIT_CARDS.search(num))
 
-#returns a bool if the date of last credit card inquiry is in the future
+
+# Returns a bool if the date of last credit card inquiry is in the future.
 def check_for_future_dates(now, then):
     now = datetime.datetime.strptime(now, '%m/%d/%Y')
     then = datetime.datetime.strptime(then, '%m/%d/%Y')
     return now > then
 
-#prompts the user if they'd like to open Credit Karma to check their score and accounts
+
+# Prompts the user if they'd like to open Credit Karma to check their credit score and credit card accounts.
 def launch_credit_karma():
     for attempts in range(4):
         open_site = input("\nDo you want to open Credit Karma so you can count your credit \n"
@@ -53,11 +55,12 @@ def launch_credit_karma():
         print("\nSorry, you only had four attempts to answer\n")
         sys.exit(1)
 
-#checks for a valid credit score input, if less than 661, will warn and prompt the user to open a relevant website 
+        
+# Checks for a valid credit score input, if less than 661, will warn and prompt the user to open a relevant website. 
 def get_credit_score():
     for attempts in range(4):
         credit_score = input("\nWhat is your current credit score? ")
-        #checks for a properly formatted credit score, three digits (nnn), then validates for input between 349 and 901
+        # Checks for a properly formatted credit score, three digits, then validates for input between 349 and 901.
         if get_valid_credit_score(credit_score) and 349 < int(credit_score) < 901:
             print("**Your credit score has been saved as {}.**".format(credit_score))
             for attempts in range(4):
@@ -88,7 +91,8 @@ def get_credit_score():
         print("\nSorry, you only had four attempts to answer. The program will now exit")
         sys.exit(1)
 
-#prompts the user if they've previously applied for a credit card in the past, if no, the program will exit 
+        
+# Prompts the user if they've previously applied for a credit card in the past, if no, the program will exit. 
 def get_has_applied_previously(credit_score):
     for attempts in range(4):
         ever_applied = (input("\nHave you ever applied for a credit card in the past? Yes/No ")).lower()
@@ -111,7 +115,8 @@ def get_has_applied_previously(credit_score):
     else:
         sys.exit(1)
 
-#prompts the user for a data in mm/dd/yyyy format
+        
+# Prompts the user for their most recent credit card inquiry date in mm/dd/yyyy format.
 def get_most_recent_inquiry_date():
     date_format = "%m/%d/%Y"
     for attempts in range(4):
@@ -142,7 +147,8 @@ def get_most_recent_inquiry_date():
     else:
         sys.exit(1)
 
-#informs the users, if their latest inquiry was less than three months ago, that it is not advised to apply for a card now
+        
+# Informs the users, if their latest inquiry was less than three months ago, that it is not advised to apply for a card.
 def cont_prog_with_recent_inquiry(delta):
     if 0 <= delta < 90:
         for attempts in range(4):
@@ -160,7 +166,8 @@ def cont_prog_with_recent_inquiry(delta):
     else:
         return
 
-#prompts the user if they've signed up for a Chase personal credit card in the last six months
+    
+# Prompts the user if they've signed up for any Chase personal credit card in the last six months.
 def get_chase_card_last_six():
     for attempts in range(4):
         last_six = input("\nHave you signed up for a new Chase personal "
@@ -180,7 +187,8 @@ def get_chase_card_last_six():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#prompts the user for num of credit cards opened in last twenty four months 
+        
+# Prompts the user for the total number of credit cards opened within the last twenty four months.
 def get_num_of_cards_twenty_four():
     for attempts in range(4):
         num_twenty_four = input("\nHow many credit cards have you opened between " + str(TWO_YEAR_FORMATTED) +
@@ -197,7 +205,8 @@ def get_num_of_cards_twenty_four():
     else:
         sys.exit(1)
 
-#prompts user if they've opened or closed a Citi personal AA card in the last 24 months
+        
+# Prompts the user if they've opened or closed a Citi personal AA card in the last twenty four months.
 def get_aa_citi_personal_card():
     for attempts in range(4):
         aa_cards = input("\nHave you opened OR closed ANY Citi American Airlines "
@@ -217,7 +226,7 @@ def get_aa_citi_personal_card():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#prompts user if they've opened or closed a Citi business AA card in the last 24 months
+# Prompts the user if they've opened or closed a Citi business AA card in the last twenty four months.
 def get_aa_citi_biz_card():
     for attempts in range(4):
         aa_biz_cards = input("\nHave you opened OR closed ANY Citi American Airlines "
@@ -237,7 +246,8 @@ def get_aa_citi_biz_card():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#prompts user if they've opened or closed a Citi ThankYou card in the last 24 months
+        
+# Prompts the user if they've opened or closed a Citi ThankYou card in the last twenty four months.
 def get_ty_citi_card():
     for attempts in range(4):
         ty_cards = input("\nHave you opened OR closed ANY Citi ThankYou personal credit card "
@@ -257,7 +267,8 @@ def get_ty_citi_card():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#prompts user if they currently hold the Capital One Venture card or if they've applied for it in the last six months
+        
+# Prompts user if they hold the Capital One Venture card or if they've applied for it in the last six months.
 def get_capone_cards():
     for attempts in range(4):
         capone_cards = input("\nDo you currently hold the Capital One Venture card OR "
@@ -278,7 +289,8 @@ def get_capone_cards():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#prompts the user for how many American Express non charge cards that are currently open (maximum of four per Amex)
+        
+# Prompts the user for how many American Express non-charge cards they currently have open (maximum of four per Amex).
 def get_amex_cards():
     for attempts in range(4):
         amex = input("\nHow many American Express 'non charge-card' credit cards do you currently have open? i.e. 3: ")
@@ -293,7 +305,8 @@ def get_amex_cards():
         print("\nSorry, you only had four attempts to answer\n")
         sys.exit(1)
 
-#prompts the user if they currently hold the Chase Sapphire Preferred or Reserve card 
+        
+# Prompts the user if they currently hold the Chase Sapphire Preferred or Reserve card. 
 def has_sapphire():
     for attempts in range(4):
         sapphire = input("\nDo you currently hold the Chase Sapphire Preferred or Reserve card? answer Yes/No ").lower()
@@ -308,7 +321,7 @@ def has_sapphire():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#responses from above functions are passed in, eligible credit cards are printed to screen. If no results print, else statement executes 
+# Responses from above functions are passed in, eligible results are printed to screen. If no results, else statement executes. 
 def get_eligible_cards(delta, aa_cards, aa_biz_cards, ty_cards, capone_cards, sapphire_result,
                        amex, last_six, num_twenty_four):
     print("\n \n***************RESULTS***************")
@@ -329,7 +342,6 @@ def get_eligible_cards(delta, aa_cards, aa_biz_cards, ty_cards, capone_cards, sa
     else:
         print("It doesn't look like you're eligible for any of the popular travel cards at this time, try back later.")
         sys.exit(1)
-
 
 
 if __name__ == '__main__':
