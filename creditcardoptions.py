@@ -31,7 +31,7 @@ def get_valid_credit_score(credit_score):
 def get_valid_credit_cards(num):
     return bool(NUMBER_OF_CREDIT_CARDS.search(num))
 
-
+#returns a bool if the date of last credit card inquiry is in the future
 def check_for_future_dates(now, then):
     now = datetime.datetime.strptime(now, '%m/%d/%Y')
     then = datetime.datetime.strptime(then, '%m/%d/%Y')
@@ -181,7 +181,7 @@ def get_chase_card_last_six():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-#prompts the users for num of credit cards opened in last twenty four months 
+#prompts the user for num of credit cards opened in last twenty four months 
 def get_num_of_cards_twenty_four():
     for attempts in range(4):
         num_twenty_four = input("\nHow many credit cards have you opened between " + str(TWO_YEAR_FORMATTED) +
@@ -294,7 +294,7 @@ def get_amex_cards():
         print("\nSorry, you only had four attempts to answer\n")
         sys.exit(1)
 
-#prompts the user if they've 
+#prompts the user if they currently hold the Chase Sapphire Preferred or Reserve card 
 def has_sapphire():
     for attempts in range(4):
         sapphire = input("\nDo you currently hold the Chase Sapphire Preferred or Reserve card? answer Yes/No ").lower()
@@ -309,7 +309,7 @@ def has_sapphire():
         print("\nSorry, you only had four attempts to answer")
         sys.exit(1)
 
-
+#responses from above functions are passed in, eligible credit cards are printed to screen. If no results print, else statement executes 
 def get_eligible_cards(delta, aa_cards, aa_biz_cards, ty_cards, capone_cards, sapphire_result,
                        amex, last_six, num_twenty_four):
     print("\n \n***************RESULTS***************")
